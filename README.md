@@ -1,48 +1,58 @@
-Role Name
-=========
+# Ansible role : OpenStack Appliances
 
-A brief description of the role goes here.
+![](https://img.shields.io/github/release/Pandemonium1986/ansible-role-os-appliances.svg)
+![](https://img.shields.io/github/repo-size/Pandemonium1986/ansible-role-os-appliances.svg)
+![](https://img.shields.io/github/release-date/Pandemonium1986/ansible-role-os-appliances.svg)
+![](https://img.shields.io/github/license/Pandemonium1986/ansible-role-os-appliances.svg)
 
-Requirements
-------------
+Configure the resources needed for an OpenStack project.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+-   network
+-   subnet
+-   router
+-   security_group
+-   security_group_rules
+-   keypair
+-   server_group
 
-Role Variables
---------------
+## Requirements
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+This role is not self contained. He requires pandemonium1986.os_requirements to work correctly.
 
-Dependencies
-------------
+```sh
+  ansible-galaxy install -f pandemonium1986.os_requirements
+```
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+## Role Variables
 
-Example Playbook
-----------------
+From defaults/main.yml :
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+```yaml
+osappliances_users:
+  - pandemonium
+osappliances_openstack_project_name: "pandama"
+osappliances_os_router_network:      "external-public"
+```
 
-    - hosts: servers
-      roles:
-         - { role: ansible-role-os-vms, x: 42 }
+## Dependencies
 
-License
--------
+-   pandemonium1986.os_requirements
 
-BSD
+## Example Playbook
 
-Author Information
-------------------
+```yaml
+- name : Openstack deployement
+  hosts: local
+  become: true
+  tasks:
+    - import_role:
+        name: pandemonium1986.os_appliances
+```
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
+
+## Author Information
+
+-   **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)

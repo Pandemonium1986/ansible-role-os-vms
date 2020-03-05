@@ -1,0 +1,23 @@
+---
+- name:               "Ensure openstack instance is created"
+  os_server:
+    name:             "{{ vm.name }}-vm"
+    state:            present
+    auto_ip:          "{{ vm.auto_ip }}"
+    boot_from_volume: true
+    delete_fip:       "{{ vm.delete_fip }}"
+    flavor:           "{{ vm.flavor }}"
+    image:            "{{ vm.image }}"
+    key_name:         "{{ osvms_openstack_project_name }}-key"
+    timeout:          200
+    terminate_volume: true
+    volume_size:      "{{ vm.volume_size }}"
+    security_groups:  "{{ osvms_openstack_project_name }}-nsg"
+    network:          "{{ osvms_openstack_project_name }}-net"
+    meta:
+      hostname:      "{{ osvms_openstack_project_name }}-vm"
+      group:         "{{ osvms_openstack_project_name }}-srg"
+      image:         "{{ vm.image }}"
+  loop:               "{{ osvms_vms }}"
+  loop_control:
+    loop_var:         vm

@@ -1,0 +1,39 @@
+---
+- name:                   Prepare
+  hosts:                  all
+  vars:
+    users:                [ "pandemonium" ]
+  tasks:
+    - name:               Ensure sudo is installed on all platforms
+      package:
+        name:             [ sudo ]
+        state:            present
+    - name:               Create molecule user
+      user:
+        name:             "{{ item }}"
+        generate_ssh_key: true
+        ssh_key_bits:     4096
+        ssh_key_comment:  fake_key
+        ssh_key_file:     .ssh/id_rsa
+        ssh_key_type:     rsa
+      loop:               "{{ users }}"
+    - name:               Generate folders for ~/.config/openstack/clouds.yaml
+      file:
+        path:             ~/.config/openstack
+        state:            directory
+        owner:            "{{ item }}"
+        group:            "{{ item }}"
+        mode:             0755
+      become_user:        "{{ item }}"
+      become:             true
+      loop:               "{{ users }}"
+    - name:               Copy ~/.config/openstack/clouds.yaml
+      copy:
+        src:              ~/.config/openstack/clouds.yaml
+        dest:             ~/.config/openstack/clouds.yaml
+        owner:            "{{ item }}"
+        group:            "{{ item }}"
+        mode:             0644
+      become_user:        "{{ item }}"
+      become:             true
+      loop:               "{{ users }}"
