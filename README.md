@@ -44,7 +44,7 @@ osvms_vms:
 
 ## Note
 
-`osvms_openstack_project_name` mustbe the same as the one declared in os_appliances.
+`osvms_openstack_project_name` must be the same as the one declared in os_appliances.  
 For molecule users you have to export two variables :
 
 -   OPENSTACK_HOSTNAME="your_open_stack_fqdn"
