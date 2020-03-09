@@ -3,4 +3,4 @@ osvms_users:
   - pandemonium
 osvms_openstack_project_name: "pandama"
 osvms_vms:
-  - { name: "default", flavor: "medium", image: "Centos7", auto_ip: true, delete_fip: true, volume_size: 30 }  # yamllint disable-line rule:line-length
+  - { name: "default", flavor: "tiny", image: "cirros", auto_ip: true, delete_fip: true, volume_size: 10 }  # yamllint disable-line rule:line-length

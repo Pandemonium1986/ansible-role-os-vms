@@ -8,17 +8,17 @@ driver:
 lint:
   name:               yamllint
 platforms:
-  # - name:             molecule-debian9
-  #   hostname:         debian9
-  #   image:            pandemonium1986/debian9:latest
-  #   pull:             true
-  #   pre_build_image:  true
-  #   tty:              true
-  #   override_command: false
-  #   etc_hosts: "{ '${OPENSTACK_HOSTNAME}': '${OPENSTACK_IP}' }"
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  #   privileged:       true
+  - name:             molecule-debian9
+    hostname:         debian9
+    image:            pandemonium1986/debian9:latest
+    pull:             true
+    pre_build_image:  true
+    tty:              true
+    override_command: false
+    etc_hosts: "{ '${OPENSTACK_HOSTNAME}': '${OPENSTACK_IP}' }"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged:       true
   - name:             molecule-debian10
     hostname:         debian10
     image:            pandemonium1986/debian10:latest
@@ -30,17 +30,17 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged:       true
-  # - name:             molecule-centos7
-  #   hostname:         centos7
-  #   image:            pandemonium1986/centos7:latest
-  #   pull:             true
-  #   pre_build_image:  true
-  #   tty:              true
-  #   override_command: false
-  #   etc_hosts: "{ '${OPENSTACK_HOSTNAME}': '${OPENSTACK_IP}' }"
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  #   privileged:       true
+  - name:               molecule-centos7
+    hostname:         centos7
+    image:            pandemonium1986/centos7:latest
+    pull:             true
+    pre_build_image:  true
+    tty:              true
+    override_command: false
+    etc_hosts: "{ '${OPENSTACK_HOSTNAME}': '${OPENSTACK_IP}' }"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged:       true
 provisioner:
   name:               ansible
   log:                true
