@@ -1,9 +1,10 @@
 # Ansible role : OpenStack Vms
 
-![](https://img.shields.io/github/release/Pandemonium1986/ansible-role-os-vms.svg)
-![](https://img.shields.io/github/repo-size/Pandemonium1986/ansible-role-os-vms.svg)
-![](https://img.shields.io/github/release-date/Pandemonium1986/ansible-role-os-vms.svg)
-![](https://img.shields.io/github/license/Pandemonium1986/ansible-role-os-vms.svg)
+![Ansible Role](https://img.shields.io/ansible/role/47135?logo=ansible)
+![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/Pandemonium1986/ansible-role-os-vms?logo=gitlab)
+![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-os-vms.svg?logo=github)
+![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-os-vms.svg?logo=github)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/47135?logo=ansible)
 
 Deploy vms into an OpenStack project.
 
