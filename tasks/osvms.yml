@@ -4,7 +4,7 @@
     name:             "{{ vm.name }}-vm"
     state:            present
     auto_ip:          "{{ vm.auto_ip }}"
-    boot_from_volume: true
+    # boot_from_volume: true
     delete_fip:       "{{ vm.delete_fip }}"
     flavor:           "{{ vm.flavor }}"
     image:            "{{ vm.image }}"
