@@ -8,6 +8,10 @@
 
 Deploy vms into an OpenStack project.
 
+## Disclaimer
+
+!!! This images is no longer support.!!!
+
 ## Requirements
 
 This role is not self contained. He requires pandemonium1986.os_appliances to work correctly.
@@ -30,7 +34,7 @@ osvms_vms:
 
 ## Dependencies
 
--   pandemonium1986.os_appliances
+- pandemonium1986.os_appliances
 
 ## Example Playbook
 
@@ -48,8 +52,8 @@ osvms_vms:
 `osvms_openstack_project_name` must be the same as the one declared in os_appliances.  
 For molecule users you have to export two variables :
 
--   OPENSTACK_HOSTNAME="your_open_stack_fqdn"
--   OPENSTACK_IP="your_open_stack_ip"
+- OPENSTACK_HOSTNAME="your_open_stack_fqdn"
+- OPENSTACK_IP="your_open_stack_ip"
 
 The goal is to add an entry in the hosts file of container
 
@@ -64,4 +68,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Author Information
 
--   **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
+- **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
